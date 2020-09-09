@@ -80,11 +80,10 @@ Your function should remove a flavor from the end of the array and console.log t
 
 For example removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]*/
 
-function removeLastFlavor(a, flavor) {
-
-    flavor.pop(a);
+function removeLastFlavor(originalFlavors) {
+    originalFlavors.pop();
 }
-console.log(removeLastFlavor(a, flavor));
+console.log(originalFlavors);
 
 /* Task 4: Write a function that returns a flavor at a given index in the array.
 
@@ -95,31 +94,32 @@ Your function should accept:
 
 For example, getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully. */
 
-function getFlavorByIndex(x, ) {
-
-    /*code here*/
-
+function getFlavorByIndex(array, index) {
+    return array[index]
 }
+console.log(getFlavorByIndex(originalFlavors, 2))
+    /* Task 5: As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, as opposed to just arbitrarily removing the first or last flavor. Your task is to get an index by flavor name, and remove that flavor from the array. 
 
-/* Task 5: As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, as opposed to just arbitrarily removing the first or last flavor. Your task is to get an index by flavor name, and remove that flavor from the array. 
+    Your function should accept: 
 
-Your function should accept: 
+    (1) an array
+    (2) a string (flavor)
 
-(1) an array
-(2) a string (flavor)
+    For example, removeFlavorByName(originalFlavors, "Vanilla") would return an array with the length 30 including all of the flavors except Vanilla. 
 
-For example, removeFlavorByName(originalFlavors, "Vanilla") would return an array with the length 30 including all of the flavors except Vanilla. 
+    Hint: You can use .splice() for this
 
-Hint: You can use .splice() for this
+    */
 
-*/
-
-function removeFlavorByName( /*code here*/ ) {
-
-    /*code here*/
-
+function removeFlavorByName(arr, str) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === str) {
+            arr.splice(i, 1);
+        }
+    }
+    return arr;
 }
-
+removeFlavorByName(originalFlavors, "Vanilla");
 
 /* Task 6: With all of these changes going on, we don't want to lose track of the actual, original 31 flavors. Write a function called copy that makes a copy of the array. 
 
